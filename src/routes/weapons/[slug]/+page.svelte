@@ -1,5 +1,9 @@
 <script lang="ts">
   import type { PageData } from './$types';
+  import { weapons } from '$lib/data/weapons';
+  import { damagePerMag, damagePerSecond, damagePerShot } from '$lib/stats';
+  import StatBars from '$lib/components/StatBars.svelte';
+  import TtkChart from '$lib/components/TtkChart.svelte';
 
   interface Props {
     data: PageData;
@@ -8,10 +12,14 @@
   let { data }: Props = $props();
   let weapon = $derived(data.weapon);
 
-  let burstDamage = $derived(
-    weapon.pellets ? weapon.damage * weapon.pellets : weapon.damage
+  let perShot = $derived(damagePerShot(weapon));
+  let dps = $derived(damagePerSecond(weapon));
+  let perMag = $derived(damagePerMag(weapon));
+
+  let classmates = $derived(
+    weapons.filter((w) => w.class === weapon.class && w.slug !== weapon.slug).slice(0, 2)
   );
-  let dps = $derived(Math.round((burstDamage * weapon.fireRate) / 60));
+  let ttkRoster = $derived([weapon, ...classmates]);
 </script>
 
 <svelte:head>
@@ -32,13 +40,13 @@
 <p class="lede">{weapon.description}</p>
 
 <section class="weapon-detail__stats">
-  <h2>Stats</h2>
+  <h2>Headline stats</h2>
   <dl>
     <div>
-      <dt>Body damage</dt>
+      <dt>Body damage / shot</dt>
       <dd>
-        {weapon.damage}
-        {#if weapon.pellets}<span class="muted">× {weapon.pellets} pellets = {burstDamage}</span>{/if}
+        {perShot}
+        {#if weapon.pellets}<span class="muted">({weapon.damage} × {weapon.pellets})</span>{/if}
       </dd>
     </div>
     <div>
@@ -47,13 +55,38 @@
     </div>
     <div>
       <dt>Magazine</dt>
-      <dd>{weapon.magSize} <span class="muted">rounds (base)</span></dd>
+      <dd>{weapon.magSize} <span class="muted">rds (base)</span></dd>
     </div>
     <div>
       <dt>Sustained DPS</dt>
-      <dd>~{dps} <span class="muted">body</span></dd>
+      <dd>{dps} <span class="muted">body</span></dd>
+    </div>
+    <div>
+      <dt>Damage / mag</dt>
+      <dd>{perMag}</dd>
     </div>
   </dl>
+</section>
+
+<section class="chart-card">
+  <div class="chart-card__head">
+    <h2>How it stacks up</h2>
+    <p class="muted">Each stat as a fraction of the highest in the roster.</p>
+  </div>
+  <StatBars {weapon} />
+</section>
+
+<section class="chart-card">
+  <div class="chart-card__head">
+    <h2>Time to kill</h2>
+    <p class="muted">
+      Body shots only, ignoring travel & reaction time. Compared with
+      {classmates.length > 0
+        ? `other ${weapon.class.toLowerCase()}s in the roster.`
+        : 'the rest of its class.'}
+    </p>
+  </div>
+  <TtkChart weapons={ttkRoster} />
 </section>
 
 <p class="disclaimer">
