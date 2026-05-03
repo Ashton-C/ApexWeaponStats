@@ -1,19 +1,21 @@
 <script lang="ts">
-  import { weaponsByClass } from '$lib/data/weapons';
+  import { weapons } from '$lib/data/weapons';
+  import WeaponCard from '$lib/components/WeaponCard.svelte';
+
+  const featured = weapons.slice(0, 6);
 </script>
 
 <h1 class="page-title">Welcome to ApexWeaponStats</h1>
 <p class="lede">A reference for the weapons of Apex Legends.</p>
 
-<div class="weapon-classes">
-  {#each Object.entries(weaponsByClass) as [className, weapons] (className)}
-    <section class="weapon-class">
-      <h2>{className}</h2>
-      <ul class="weapon-list">
-        {#each weapons as weapon (weapon.slug)}
-          <li class="weapon weapon-{weapon.slug}">{weapon.name}</li>
-        {/each}
-      </ul>
-    </section>
-  {/each}
-</div>
+<section>
+  <div class="section-head">
+    <h2>Featured weapons</h2>
+    <a href="/weaponstats">View all →</a>
+  </div>
+  <div class="weapon-grid">
+    {#each featured as weapon (weapon.slug)}
+      <WeaponCard {weapon} />
+    {/each}
+  </div>
+</section>

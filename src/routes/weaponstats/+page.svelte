@@ -1,5 +1,8 @@
 <script lang="ts">
   import { weaponsByClass } from '$lib/data/weapons';
+  import WeaponCard from '$lib/components/WeaponCard.svelte';
+
+  const grouped = weaponsByClass();
 </script>
 
 <svelte:head>
@@ -7,17 +10,15 @@
 </svelte:head>
 
 <h1 class="page-title">Weapons</h1>
-<p class="lede">Detailed stats are coming soon. For now, here's the roster.</p>
+<p class="lede">Every weapon in the current roster, grouped by class. Click a card for full stats.</p>
 
-<div class="weapon-classes">
-  {#each Object.entries(weaponsByClass) as [className, weapons] (className)}
-    <section class="weapon-class">
-      <h2>{className}</h2>
-      <ul class="weapon-list">
-        {#each weapons as weapon (weapon.slug)}
-          <li class="weapon">{weapon.name}</li>
-        {/each}
-      </ul>
-    </section>
-  {/each}
-</div>
+{#each Object.entries(grouped) as [className, list] (className)}
+  <section class="weapon-class-section">
+    <h2>{className}</h2>
+    <div class="weapon-grid">
+      {#each list as weapon (weapon.slug)}
+        <WeaponCard {weapon} />
+      {/each}
+    </div>
+  </section>
+{/each}
