@@ -217,6 +217,141 @@ export const weapons: Weapon[] = [
     magSize: 16,
     description:
       'Full-auto sidearm. Strong drop-in pistol when you have nothing else; falls off as proper SMGs come online.'
+  },
+  {
+    name: 'P2020',
+    slug: 'p2020',
+    class: 'Pistol',
+    ammo: 'Light',
+    damage: 18,
+    fireRate: 420,
+    magSize: 14,
+    description:
+      'Semi-auto starter pistol. Modest on its own; the Hammerpoint hop-up makes it a real threat against unshielded targets.'
+  },
+  {
+    name: 'Mastiff Shotgun',
+    slug: 'mastiff',
+    class: 'Shotgun',
+    ammo: 'Shotgun',
+    damage: 13,
+    pellets: 8,
+    fireRate: 84,
+    magSize: 6,
+    description:
+      'Lever-action shotgun with a tight horizontal pellet pattern. Punishing at close range and surprisingly capable at mid range.'
+  },
+  {
+    name: 'Mozambique Shotgun',
+    slug: 'mozambique',
+    class: 'Shotgun',
+    ammo: 'Shotgun',
+    damage: 13,
+    pellets: 3,
+    fireRate: 132,
+    magSize: 6,
+    description:
+      'Three-barrel break-action pistol-shotgun. The internet meme that learned to bite once Hammerpoints arrived.'
+  },
+  {
+    name: 'Triple Take',
+    slug: 'triple-take',
+    class: 'Marksman',
+    ammo: 'Sniper',
+    damage: 23,
+    pellets: 3,
+    fireRate: 78,
+    magSize: 5,
+    description:
+      'Three-shot energy marksman that fires a tight cluster. Charge the Choke to tighten spread further at long range.'
+  },
+  {
+    name: 'Charge Rifle',
+    slug: 'charge-rifle',
+    class: 'Sniper',
+    ammo: 'Sniper',
+    damage: 90,
+    fireRate: 26,
+    magSize: 4,
+    description:
+      'Hitscan sniper with a brief charge-up before the shot. Ideal for static defenders; awkward to use on the move.'
+  },
+  {
+    name: 'Kraber .50-Cal',
+    slug: 'kraber',
+    class: 'Sniper',
+    ammo: 'Special',
+    damage: 145,
+    fireRate: 26,
+    magSize: 4,
+    description:
+      'Care-package sniper. A clean body shot deletes most opponents through any shield tier — and missing hurts.'
+  },
+  {
+    name: 'L-STAR EMG',
+    slug: 'l-star',
+    class: 'LMG',
+    ammo: 'Energy',
+    damage: 18,
+    fireRate: 600,
+    magSize: 24,
+    description:
+      'Heat-based energy LMG with chunky plasma projectiles. No traditional reload — vents heat after sustained fire.'
+  },
+  {
+    name: 'Nemesis Burst AR',
+    slug: 'nemesis',
+    class: 'Assault',
+    ammo: 'Energy',
+    damage: 17,
+    fireRate: 750,
+    magSize: 24,
+    description:
+      'Four-round burst energy AR with a fire-rate ramp. Stay engaged and the time between bursts shrinks dramatically.'
+  },
+  {
+    name: '30-30 Repeater',
+    slug: '30-30',
+    class: 'Marksman',
+    ammo: 'Heavy',
+    damage: 42,
+    fireRate: 138,
+    magSize: 6,
+    description:
+      'Lever-action marksman that rewards charged shots with bonus damage. Versatile from medium to long range.'
+  },
+  {
+    name: 'Rampage LMG',
+    slug: 'rampage',
+    class: 'LMG',
+    ammo: 'Heavy',
+    damage: 28,
+    fireRate: 300,
+    magSize: 28,
+    description:
+      'Heavy-hitting LMG that can be revved with a Thermite Grenade for a major fire-rate boost. Ruthless in open areas.'
+  },
+  {
+    name: 'Bocek Compound Bow',
+    slug: 'bocek',
+    class: 'Marksman',
+    ammo: 'Special',
+    damage: 60,
+    fireRate: 120,
+    magSize: 1,
+    description:
+      'Drawable compound bow with stackable hop-ups. Silent, high-impact single-shot damage at full draw.'
+  },
+  {
+    name: 'Prowler Burst PDW',
+    slug: 'prowler',
+    class: 'SMG',
+    ammo: 'Heavy',
+    damage: 14,
+    fireRate: 1080,
+    magSize: 20,
+    description:
+      'Five-round burst SMG. With Selectfire it converts to full-auto and becomes one of the best close-range options in the game.'
   }
 ];
 
