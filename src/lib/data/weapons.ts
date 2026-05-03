@@ -35,6 +35,8 @@ export interface Weapon {
   /** Base magazine size (no extended mag). */
   magSize: number;
   description: string;
+  /** Path to a transparent PNG of the weapon under /static, e.g. '/weapons/flatline.png'. */
+  iconUrl?: string;
 }
 
 export const weapons: Weapon[] = [

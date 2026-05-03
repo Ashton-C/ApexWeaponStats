@@ -10,23 +10,25 @@
 
 <section class="hero">
   <div class="hero__copy">
-    <span class="hero__eyebrow">Apex Legends · weapon reference</span>
-    <h1 class="hero__title">Stats, charts, and side-by-side comparisons.</h1>
+    <span class="hero__eyebrow">Weapon Intel · Apex Legends</span>
+    <h1 class="hero__title">
+      Stats, charts &<br /><span class="accent">tactical intel.</span>
+    </h1>
     <p class="hero__lede">
-      Browse the full roster, dig into time-to-kill at every shield tier, and compare any
-      two guns head-to-head.
+      Browse the full roster, dig into time-to-kill at every shield tier, and compare any two
+      guns head-to-head.
     </p>
     <div class="hero__cta">
-      <a class="btn btn--primary" href="/weaponstats">Browse weapons</a>
-      <a class="btn btn--ghost" href="/compare">Compare two →</a>
+      <a class="btn btn--primary" href="/weaponstats">Browse arsenal</a>
+      <a class="btn btn--ghost" href="/compare">Run comparison →</a>
     </div>
   </div>
 
   <aside class="hero__stat">
-    <span class="hero__stat-label">Highest sustained DPS</span>
+    <span class="hero__stat-label">Top sustained DPS</span>
     <a class="hero__stat-card" href="/weapons/{topDps.slug}">
       <span class="hero__stat-name">{topDps.name}</span>
-      <span class="hero__stat-value">{damagePerSecond(topDps)} <span class="muted">dps</span></span>
+      <span class="hero__stat-value">{damagePerSecond(topDps)}</span>
       <span class="hero__stat-meta">{topDps.class} · {topDps.ammo} ammo</span>
     </a>
   </aside>

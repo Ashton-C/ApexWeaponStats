@@ -18,9 +18,20 @@
     <span class="weapon-card__ammo ammo-{weapon.ammo.toLowerCase()}">{weapon.ammo}</span>
   </div>
   <p class="weapon-card__class">{weapon.class}</p>
+
+  <div
+    class="weapon-card__icon {weapon.iconUrl ? '' : 'weapon-card__icon--placeholder'}"
+  >
+    {#if weapon.iconUrl}
+      <img src={weapon.iconUrl} alt="" loading="lazy" />
+    {:else}
+      <span>NO·IMG</span>
+    {/if}
+  </div>
+
   <dl class="weapon-card__stats">
     <div>
-      <dt>Damage</dt>
+      <dt>DMG</dt>
       <dd>{damageLabel}</dd>
     </div>
     <div>
@@ -28,7 +39,7 @@
       <dd>{weapon.fireRate}</dd>
     </div>
     <div>
-      <dt>Mag</dt>
+      <dt>MAG</dt>
       <dd>{weapon.magSize}</dd>
     </div>
   </dl>

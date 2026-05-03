@@ -17,7 +17,9 @@
 </script>
 
 <header class="site-header">
-  <a class="brand" href="/">ApexWeaponStats</a>
+  <a class="brand" href="/">
+    APEX<span class="brand__sep">//</span>WEAPONSTATS
+  </a>
   <nav class="nav" aria-label="Primary">
     {#each links as link (link.href)}
       <a href={link.href} class:is-active={isActive(link.href)}>{link.label}</a>
